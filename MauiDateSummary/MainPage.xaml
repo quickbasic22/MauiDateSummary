@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="page"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="MauiDateSummary.MainPage">
+    
+
+    <VerticalStackLayout BindingContext="{Static sys:DateTime.Now}"
+      Spacing="25" Padding="30,0"
+      VerticalOptions="Center" HorizontalOptions="Center">
+        <Frame BackgroundColor="DarkMagenta" HorizontalOptions="Center">
+            <Label Text="Summary of 2022" FontSize="Header" FontAttributes="Bold" TextColor="Orange" />
+        </Frame>
+        <Label Text="{Binding DayOfWeek, StringFormat='The Day of week is {0}'}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+        <Label Text="{Binding DayOfYear, StringFormat='The Day of year is {0}'}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+        <Label BindingContext="{Reference page}" Text="{Binding DaysLeft, StringFormat='{0:N0} days left in 2022'}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+        <Label Text="{Binding Source={Reference page}, StringFormat='{0:F1}% of 2022 gone', Path=YearPercentDone}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+        <Label Text="{Binding Source={Reference page}, StringFormat='{0:F1}% Left in 2022', Path=YearPercentLeft}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+        <Label x:Name="dayofweeklabel" Text="{Binding DayOfWeek, StringFormat='The day of week is {0}'}" FontSize="12" HorizontalOptions="Center" />
+        <Stepper ValueChanged="Stepper_ValueChanged" HorizontalOptions="Center" />
+        <Label Text="{Binding Source={Reference dayofweeklabel}, Path=FontSize}" FontSize="Caption" HorizontalOptions="Center" />
+        <Label Text="Caption
+                      Default
+                      Body
+                      Micro
+                      Small
+                      Subtitle
+                      Medium
+                      Title
+                      Large
+                      Header" LineBreakMode="WordWrap" VerticalTextAlignment="Center" FontSize="Large" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
