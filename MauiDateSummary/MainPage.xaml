@@ -4,23 +4,24 @@
              x:Name="page"
              xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="MauiDateSummary.MainPage">
-    
 
-    <VerticalStackLayout BindingContext="{Static sys:DateTime.Now}"
+
+    <ScrollView>
+        <VerticalStackLayout BindingContext="{Static sys:DateTime.Now}"
       Spacing="25" Padding="30,0"
       VerticalOptions="Center" HorizontalOptions="Center">
-        <Frame BackgroundColor="DarkMagenta" HorizontalOptions="Center">
-            <Label Text="Summary of 2022" FontSize="Header" FontAttributes="Bold" TextColor="Orange" />
-        </Frame>
-        <Label Text="{Binding DayOfWeek, StringFormat='The Day of week is {0}'}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
-        <Label Text="{Binding DayOfYear, StringFormat='The Day of year is {0}'}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
-        <Label BindingContext="{Reference page}" Text="{Binding DaysLeft, StringFormat='{0:N0} days left in 2022'}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
-        <Label Text="{Binding Source={Reference page}, StringFormat='{0:F1}% of 2022 gone', Path=YearPercentDone}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
-        <Label Text="{Binding Source={Reference page}, StringFormat='{0:F1}% Left in 2022', Path=YearPercentLeft}" FontSize="Large" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
-        <Label x:Name="dayofweeklabel" Text="{Binding DayOfWeek, StringFormat='The day of week is {0}'}" FontSize="12" HorizontalOptions="Center" />
-        <Stepper ValueChanged="Stepper_ValueChanged" HorizontalOptions="Center" />
-        <Label Text="{Binding Source={Reference dayofweeklabel}, Path=FontSize}" FontSize="Caption" HorizontalOptions="Center" />
-        <Label Text="Caption
+            <Frame BackgroundColor="SpringGreen" HorizontalOptions="Center">
+                <Label Text="Summary of 2022" FontSize="55" FontAttributes="Bold" TextColor="PaleVioletRed" />
+            </Frame>
+            <Label Text="{Binding DayOfWeek, StringFormat='The Day of week is {0}'}" FontSize="35" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+            <Label Text="{Binding DayOfYear, StringFormat='The Day of year is {0}'}" FontSize="35" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+            <Label BindingContext="{Reference page}" Text="{Binding DaysLeft, StringFormat='{0:N0} days left in 2022'}" FontSize="35" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+            <Label Text="{Binding Source={Reference page}, StringFormat='{0:F1}% of 2022 gone', Path=YearPercentDone}" FontSize="35" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+            <Label Text="{Binding Source={Reference page}, StringFormat='{0:F1}% Left in 2022', Path=YearPercentLeft}" FontSize="35" BackgroundColor="DarkBlue" TextColor="MediumPurple" HorizontalOptions="Center" />
+            <Label x:Name="dayofweeklabel" Text="{Binding DayOfWeek, StringFormat='The day of week is {0}'}" FontSize="12" HorizontalOptions="Center" />
+            <Stepper ValueChanged="Stepper_ValueChanged" HorizontalOptions="Center" />
+            <Label Text="{Binding Source={Reference dayofweeklabel}, Path=FontSize}" FontSize="Caption" HorizontalOptions="Center" />
+            <Label Text="Caption
                       Default
                       Body
                       Micro
@@ -28,9 +29,10 @@
                       Subtitle
                       Medium
                       Title
-                      Large
-                      Header" LineBreakMode="WordWrap" VerticalTextAlignment="Center" FontSize="Large" />
+                      35
+                      Header" LineBreakMode="WordWrap" VerticalTextAlignment="Center" FontSize="35" />
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
